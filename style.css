@@ -1,15 +1,25 @@
 .link {
   stroke: #cc99ff;
 }
-@font-face{
-	font-family: 'Open Sans';
-	src: url('OpenSans.svg') format('svg');
+
+@font-face {
+    font-family: 'bitstream_vera_sans_monoroman';
+    src: url('VeraMono-webfont.eot');
+    src: url('VeraMono-webfont.eot?#iefix') format('embedded-opentype'),
+         url('VeraMono-webfont.woff') format('woff'),
+         url('VeraMono-webfont.ttf') format('truetype'),
+         url('VeraMono-webfont.svg#bitstream_vera_sans_monoroman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
+
+
 
 .node text {
   pointer-events: none;
-  font-size: 10px;
-  font-family: 'Open Sans', sans-serif;
+  font-size: .6em;
+  font-family: 'bitstream_vera_sans_monoroman', sans-serif;
   fill: white;
 }
 
