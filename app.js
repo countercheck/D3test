@@ -27,7 +27,10 @@ var init=function(){
 
   var force = d3.layout.force()
     .gravity(0.05)
-    .distance(100)
+    //.distance(100)
+    .distance(function(l){
+      return l.priority*25;
+    })
     .linkStrength(0.1)
     .charge(-150)
     .size([width, height])
@@ -122,6 +125,7 @@ var init=function(){
           return 18;
         }else{
           return 30;}});
+
 
   force.on("tick", function() {
     node.attr("cx", function(d) { d.x = Math.max(6, Math.min(width - 6, d.x)); })
