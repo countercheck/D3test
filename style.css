@@ -1,4 +1,3 @@
-
 .link {
   stroke: #cc99ff;
 }
@@ -18,15 +17,20 @@
 
 .jumpGate {
   stroke: #0000ff;
+  stroke-width: 2.5;
 }
 .linkValue6 {
   stroke: #00f000;
+  stroke-width: 2.5;
 }
 .linkValue7 {
   stroke: #ff6600;
+  stroke-width: 2.5;
 }
 .linkValue8 {
   stroke: #ff0000;
+  stroke-width: 2.5;
+  stroke-array: 5,5;
 }
 
 
