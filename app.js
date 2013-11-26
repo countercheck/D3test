@@ -11,6 +11,7 @@ var linkRef = new Firebase("https://adastragames.firebaseio.com/aarra2/links");
             linkObject.source = nodes[tempLinks[i][0]];
             linkObject.target = nodes[tempLinks[i][1]];
             linkObject.weight = 4;
+            linkObject.priority = tempLinks[i][2];
             links.push(linkObject);
           }
           init();
@@ -36,9 +37,27 @@ var init=function(){
 
   var link = svg.selectAll(".link")
       .data(links)
-    .enter().append("line")
-      .attr("stroke-width",2.5)
-      .attr("class", "link");
+      .enter().append("line")
+      .attr("stroke-width",function(d){
+        if(d.priority>=8){
+          return 5;
+        }else{
+          return 2.5;
+        }
+      })
+      .attr("class", function(d){
+        if (d.priority===0){
+          return "jumpGate";
+        }else if(d.priority===6){
+          return "linkValue6";
+        }else if(d.priority===7){
+          return "linkValue7";
+        }else if(d.priority>=8){
+          return "linkValue8";
+        }else{
+          return "link";
+        }
+      });
 
   var node = svg.selectAll(".node")
       .data(nodes)

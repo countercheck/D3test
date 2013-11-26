@@ -15,6 +15,21 @@
   letter-spacing: 1.5px;
 }
 
+
+.jumpGate {
+  stroke: #0000ff;
+}
+.linkValue6 {
+  stroke: #00f000;
+}
+.linkValue7 {
+  stroke: #ff6600;
+}
+.linkValue8 {
+  stroke: #ff0000;
+}
+
+
 body{
 	background-color: #050505;
 
