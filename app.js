@@ -41,13 +41,6 @@ var init=function(){
   var link = svg.selectAll(".link")
       .data(links)
       .enter().append("line")
-      .attr("stroke-width",function(d){
-        if(d.priority>=8){
-          return 5;
-        }else{
-          return 2.5;
-        }
-      })
       .attr("class", function(d){
         if (d.priority===0){
           return "jumpGate";
