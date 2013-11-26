@@ -18,15 +18,11 @@ var linkRef = new Firebase("https://adastragames.firebaseio.com/aarra2/links");
         });
       });
 var init=function(){
-  var width = window.screen.width,
-    height = window.screen.height;
-
-  var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
+  var svg = d3.select("#myCanvas").append("svg");
+  var width = $( "#myCanvas" ).width();
+      height = $( "#myCanvas" ).height();
   var force = d3.layout.force()
-    .gravity(0.05)
+    .gravity(0.1)
     //.distance(100)
     .distance(function(l){
       return l.priority*25;

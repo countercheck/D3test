@@ -2,6 +2,15 @@
   stroke: #cc99ff;
 }
 
+h1{
+  color: white;
+}
+
+h3{
+  color: white;
+}
+
+}
 @font-face {
     font-family: 'bitstream_vera_sans_monoroman';
     src: url('VeraMono-webfont.eot');
@@ -50,3 +59,7 @@ body{
 				background: -ms-radial-gradient(center, ellipse cover,  rgba(43,45,48,1) 0%,rgba(0,0,0,1) 100%); /* IE10+ */
 				background: radial-gradient(ellipse at center,  rgba(43,45,48,1) 0%,rgba(0,0,0,1) 100%); /* W3C */
 }
+
+.red{
+  background-color: red;
+
