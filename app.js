@@ -65,10 +65,10 @@ var init=function(){
         }
         return value;
       })
-      .attr("x", -12)
-      .attr("y", -12)
-      .attr("width", 24)
-      .attr("height", 24);
+      .attr("x", -16)
+      .attr("y", -16)
+      .attr("width", 32)
+      .attr("height", 32);
 
   node.append("image")
       .attr("xlink:href", function(d){
@@ -98,7 +98,11 @@ var init=function(){
       .text(function(d) {return d.sysName;})
       .attr("stroke","white")
       .attr("dx", function(d){return d.sysName.length* -2.5;})
-      .attr("dy", function(d){if(!d.gbyEcon){return 18;}else{return 30;}});
+      .attr("dy", function(d){
+        if(!d.gbyEcon){
+          return 18;
+        }else{
+          return 30;}});
 
   force.on("tick", function() {
     node.attr("cx", function(d) { d.x = Math.max(6, Math.min(width - 6, d.x)); })
