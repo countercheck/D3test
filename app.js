@@ -111,7 +111,6 @@ var init=function(){
 
   node.append("text")
       .text(function(d) {return d.sysName;})
-      .attr("stroke","white")
       .attr("dx", function(d){return d.sysName.length* -2.5;})
       .attr("dy", function(d){
         if(!d.gbyEcon){
