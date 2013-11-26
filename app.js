@@ -98,7 +98,7 @@ var init=function(){
       .text(function(d) {return d.sysName;})
       .attr("stroke","white")
       .attr("dx", function(d){return d.sysName.length* -2.5;})
-      .attr("dy", 30);
+      .attr("dy", function(d){if(!d.gbyEcon){return 18;}else{return 30;}});
 
   force.on("tick", function() {
     node.attr("cx", function(d) { d.x = Math.max(6, Math.min(width - 6, d.x)); })
