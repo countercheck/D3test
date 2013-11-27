@@ -1,3 +1,4 @@
+//Get data from Firebase
 var nodes,links=[],tempLinks,tempWidth=-6;
 var nodeRef = new Firebase("https://adastragames.firebaseio.com/aarra2/nodes");
 var linkRef = new Firebase("https://adastragames.firebaseio.com/aarra2/links");
@@ -17,7 +18,15 @@ var linkRef = new Firebase("https://adastragames.firebaseio.com/aarra2/links");
           init();
         });
       });
+
+//populate list of system names
+
+
+
+//svg drawing
 var init=function(){
+    
+
   var svg = d3.select("#myCanvas").append("svg");
   var width = $( "#myCanvas" ).width();
       height = $( "#myCanvas" ).height();
@@ -125,4 +134,21 @@ var init=function(){
 
     node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
   });
+
+    var systemName=[];
+    for (var i = nodes.length - 1; i >= 0; i--) {
+      systemName[i]=nodes[i].sysName;
+    };
+    systemName.sort();
+    for (var i = systemName.length - 1; i >= 0; i--) {
+      $( "#systemSelect" ).prepend( "<option>"+systemName[i]+"</option>" );
+    };
+
+  // $( "#systemSelect" )
+  //   .change(function() {
+  //     $( "select option:selected" ).each(function() {
+        
+  //     });
+  //   })
+  //   .trigger( "change" );
 };
