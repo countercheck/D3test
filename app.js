@@ -46,15 +46,17 @@ var init=function(){
   var link = svg.selectAll(".link")
       .data(links)
       .enter().append("line")
+      .attr('data-source', function(d){return d.source.sysName})
+      .attr('data-target', function(d){return d.target.sysName})
       .attr("class", function(d){
         if (d.priority===0){
-          return "jumpGate";
+          return "link jumpGate";
         }else if(d.priority===6){
-          return "linkValue6";
+          return "link linkValue6";
         }else if(d.priority===7){
-          return "linkValue7";
+          return "link linkValue7";
         }else if(d.priority>=8){
-          return "linkValue8";
+          return "link linkValue8";
         }else{
           return "link";
         }
@@ -65,7 +67,8 @@ var init=function(){
       .enter().append("g")
       .attr("class", "node")
       .attr("r", 5.25)
-      .call(force.drag);
+      .call(force.drag)
+      .attr('data-sysName', function(d){return d.sysName});
 
 
 
@@ -144,11 +147,17 @@ var init=function(){
       $( "#systemSelect" ).prepend( "<option>"+systemName[i]+"</option>" );
     };
 
-  // $( "#systemSelect" )
-  //   .change(function() {
-  //     $( "select option:selected" ).each(function() {
-        
-  //     });
-  //   })
-  //   .trigger( "change" );
+  $( "#systemSelect" )
+    .change(function() {
+      $( "select option:selected" ).each(function() {
+        var str = $( this ).text();
+        console.log(str);
+        $( ".link").removeClass('highlight');
+        $( ".link[data-source~=str]" ).addClass('highlight');
+        $( ".link[data-target~=str]" ).addClass('highlight');
+        $( ".node").removeClass('highlight');
+        $( ".node[data-sysName~=str]" ).addClass('highlight');
+      });
+    })
+    .trigger( "change" );
 };
