@@ -152,11 +152,16 @@ var init=function(){
       $( "select option:selected" ).each(function() {
         var str = $( this ).text();
         console.log(str);
-        $( ".link").removeClass('highlight');
-        $( ".link[data-source~=str]" ).addClass('highlight');
-        $( ".link[data-target~=str]" ).addClass('highlight');
-        $( ".node").removeClass('highlight');
-        $( ".node[data-sysName~=str]" ).addClass('highlight');
+        d3.selectAll('.link').classed('hilightLink',false);
+        d3.selectAll('[data-source=str]').classed('hilightLink',true);
+        d3.selectAll('[data-target=str]').classed('hilightLink',true);
+        d3.selectAll('.node').classed('hilightNode',false);
+        d3.selectAll('[sysName=str]').classed('hilightLink',true);
+        // $( ".link").classed('highlight', 'False');
+        // $( ".link[data-source~=str]" ).classed('highlight', 'True');
+        // $( ".link[data-target~=str]" ).classed('highlight', 'True');
+        // $( ".node").classed('highlight', 'False');
+        // $( ".node[data-sysName~=str]" ).classed('highlight', 'True');
       });
     })
     .trigger( "change" );
